@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Challenge Platform</title>
+    <link rel="stylesheet" href="challenge.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="nav-title">🚀 Code Challenge Platform</h1>
+            <div class="nav-buttons">
+                <button id="leaderboardBtn" class="nav-btn">🏆 Leaderboard</button>
+                <button id="darkToggle" class="nav-btn">🌙 Dark Mode</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <!-- Problem Selection Section -->
+        <div class="section problem-section">
+            <h2>📝 Select Challenge</h2>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" placeholder="Enter your username" required>
+            </div>
+            <div class="form-group">
+                <label for="problemSelect">Problem:</label>
+                <select id="problemSelect" required>
+                    <option value="">Loading problems...</option>
+                </select>
+            </div>
+            <div id="problemDescription" class="problem-desc hidden">
+                <h3>Problem Description</h3>
+                <div id="problemDetails"></div>
+                <div id="sampleTests" class="sample-tests"></div>
+            </div>
+        </div>
+
+        <!-- Code Editor Section -->
+        <div class="section editor-section">
+            <h2>💻 Python Code Editor</h2>
+            <div class="editor-container">
+                <textarea id="codeEditor" placeholder="# Write your Python solution here
+def solve():
+    # Your code goes here
+    pass"></textarea>
+                <div class="editor-footer">
+                    <span class="language-badge">🐍 Python</span>
+                    <button id="submitBtn" class="submit-btn" disabled>
+                        <span class="btn-text">Submit Solution</span>
+                        <div class="spinner hidden"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="section results-section hidden" id="resultsSection">
+            <h2>📊 Submission Results</h2>
+            <div id="resultsContent"></div>
+        </div>
+
+        <!-- Leaderboard Section -->
+        <div class="section leaderboard-section hidden" id="leaderboardSection">
+            <h2>🏆 Live Leaderboard</h2>
+            <div class="leaderboard-container">
+                <table id="leaderboardTable">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>User</th>
+                            <th>Score</th>
+                            <th>Result</th>
+                            <th>Timestamp</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🎉 Submission Successful!</h2>
+                <button id="closeModal" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="modalResults"></div>
+                <div class="modal-actions">
+                    <button id="viewLeaderboard" class="action-btn primary">View Leaderboard</button>
+                    <button id="tryAnother" class="action-btn secondary">Try Another Problem</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p>Evaluating your solution...</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="challenge.js?v=2"></script>
+</body>
+</html>
