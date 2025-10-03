@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Code Challenge Platform</title>
+    <link rel="stylesheet" href="challenge.css" />
+  </head>
+  <body>
+    <div class="main-container" style="max-width: 500px; margin: 4rem auto">
+      <div class="section">
+        <h2 style="text-align: center">🔐 Login / Signup</h2>
+
+        <div id="loginForm">
+          <div class="form-group">
+            <label for="loginUsername">Username:</label>
+            <input type="text" id="loginUsername" required />
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" required />
+          </div>
+          <button id="loginBtn" class="submit-btn" style="width: 100%">
+            Login
+          </button>
+          <p style="text-align: center; margin-top: 1rem">
+            Don't have an account?
+            <a href="#" id="showSignup" style="color: #6366f1">Sign up</a>
+          </p>
+        </div>
+
+        <div id="signupForm" class="hidden">
+          <div class="form-group">
+            <label for="signupUsername">Username:</label>
+            <input type="text" id="signupUsername" required />
+          </div>
+          <div class="form-group">
+            <label for="signupEmail">Email:</label>
+            <input type="email" id="signupEmail" required />
+          </div>
+          <div class="form-group">
+            <label for="signupPassword">Password:</label>
+            <input
+              type="password"
+              id="signupPassword"
+              maxlength="72"
+              required
+            />
+            <small style="color: #666">Maximum 72 characters</small>
+          </div>
+          <button id="signupBtn" class="submit-btn" style="width: 100%">
+            Sign Up
+          </button>
+          <p style="text-align: center; margin-top: 1rem">
+            Already have an account?
+            <a href="#" id="showLogin" style="color: #6366f1">Login</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="auth.js"></script>
+  </body>
+</html>

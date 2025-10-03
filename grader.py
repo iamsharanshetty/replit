@@ -50,7 +50,11 @@ if __name__ == "__main__":
                 user_output = result.stdout.strip()
                 expected_output = case["expected_output"].strip()
 
-                if user_output == expected_output:
+                # Normalize whitespace for comparison (remove all spaces)
+                user_output_normalized = user_output.replace(" ", "")
+                expected_output_normalized = expected_output.replace(" ", "")
+
+                if user_output_normalized == expected_output_normalized:
                     passed_count += 1
                 else:
                     error_details.append(f"Test {i+1}: Expected '{expected_output}', got '{user_output}'")
