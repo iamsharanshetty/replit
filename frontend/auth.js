@@ -2,21 +2,35 @@
 //   window.location.hostname === "localhost" ? "http://127.0.0.1:8000" : "/api";
 
 // Better API_BASE detection
+// const API_BASE = (() => {
+//   const hostname = window.location.hostname;
+//   const protocol = window.location.protocol;
+
+//   // If opened as file:// or localhost, use local server
+//   if (
+//     protocol === "file:" ||
+//     hostname === "localhost" ||
+//     hostname === "127.0.0.1" ||
+//     hostname === ""
+//   ) {
+//     return "http://127.0.0.1:8000";
+//   }
+//   // Otherwise use /api for production
+//   return "/api";
+// })();
+
+// console.log("API_BASE set to:", API_BASE);
+
 const API_BASE = (() => {
   const hostname = window.location.hostname;
-  const protocol = window.location.protocol;
 
-  // If opened as file:// or localhost, use local server
-  if (
-    protocol === "file:" ||
-    hostname === "localhost" ||
-    hostname === "127.0.0.1" ||
-    hostname === ""
-  ) {
+  // Development
+  if (hostname === "localhost" || hostname === "127.0.0.1" || hostname === "") {
     return "http://127.0.0.1:8000";
   }
-  // Otherwise use /api for production
-  return "/api";
+
+  // Production - API is on same domain
+  return window.location.origin;
 })();
 
 console.log("API_BASE set to:", API_BASE);
