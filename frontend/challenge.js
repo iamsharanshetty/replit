@@ -6,37 +6,22 @@ let currentProblem = "";
 //   window.location.hostname === "localhost" ? "http://127.0.0.1:8000" : "/api";
 // At the top of challenge.js, replace the API_BASE line with:
 // At the top of challenge.js, replace the API_BASE line with:
-// const API_BASE = (() => {
-//   const hostname = window.location.hostname;
-//   const protocol = window.location.protocol;
-
-//   if (
-//     protocol === "file:" ||
-//     hostname === "localhost" ||
-//     hostname === "127.0.0.1" ||
-//     hostname === ""
-//   ) {
-//     return "http://127.0.0.1:8000";
-//   }
-//   return "/api";
-// })();
-
-// console.log("API_BASE set to:", API_BASE);
-
 const API_BASE = (() => {
   const hostname = window.location.hostname;
+  const protocol = window.location.protocol;
 
-  // Development
-  if (hostname === "localhost" || hostname === "127.0.0.1" || hostname === "") {
+  if (
+    protocol === "file:" ||
+    hostname === "localhost" ||
+    hostname === "127.0.0.1" ||
+    hostname === ""
+  ) {
     return "http://127.0.0.1:8000";
   }
-
-  // Production - API is on same domain
-  return window.location.origin;
+  return "/api";
 })();
 
 console.log("API_BASE set to:", API_BASE);
-
 // DOM Elements
 const elements = {
   username: document.getElementById("username"),

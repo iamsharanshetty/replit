@@ -2,8 +2,8 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from datetime import datetime
-from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
+# from fastapi.staticfiles import StaticFiles
+# from fastapi.responses import FileResponse
 import os
 import json
 from grader import grade_submission
@@ -32,20 +32,20 @@ app.add_middleware(
 print("✓ CORS middleware configured")
 
 # Serve static files (CSS, JS)
-app.mount("/static", StaticFiles(directory="frontend"), name="static")
+# app.mount("/static", StaticFiles(directory="frontend"), name="static")
 
-# Serve HTML pages
-@app.get("/auth")
-async def serve_auth():
-    return FileResponse("frontend/auth.html")
+# # Serve HTML pages
+# @app.get("/auth")
+# async def serve_auth():
+#     return FileResponse("frontend/auth.html")
 
-@app.get("/challenge")
-async def serve_challenge():
-    return FileResponse("frontend/challenge.html")
+# @app.get("/challenge")
+# async def serve_challenge():
+#     return FileResponse("frontend/challenge.html")
 
-@app.get("/")
-async def serve_index():
-    return FileResponse("frontend/index.html")
+# @app.get("/")
+# async def serve_index():
+#     return FileResponse("frontend/index.html")
 
 # Load existing submissions
 leaderboard_file = "leaderboard.json"
