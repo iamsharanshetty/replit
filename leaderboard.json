@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "submission_id": "ab9882fe-55e5-4c01-a959-aa3928da2356",
+    "user_id": "devshetty",
+    "problem_id": "three-sum",
+    "score": 10,
+    "replay_result": "10/10 tests passed",
+    "timestamp": "2025-10-04T06:36:55.288125",
+    "error_details": []
+  }
+]
